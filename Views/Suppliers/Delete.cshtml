@@ -1,0 +1,54 @@
+﻿@model WebApplication1.Models.Supplier
+
+@{
+    ViewData["Title"] = "Delete Supplier";
+}
+
+<div class="card shadow-sm border-0 col-lg-6">
+
+    ```
+    <div class="card-header bg-danger text-white fw-semibold">
+        Delete Supplier
+    </div>
+
+    <div class="card-body">
+
+        <p class="text-muted">
+            Are you sure you want to delete this supplier?
+        </p>
+
+        <ul class="list-group mb-3">
+
+            <li class="list-group-item">
+                <b>Name:</b> @Model.Name
+            </li>
+
+            <li class="list-group-item">
+                <b>Email:</b> @Model.ContactEmail
+            </li>
+
+            <li class="list-group-item">
+                <b>Phone:</b> @Model.Phone
+            </li>
+
+        </ul>
+
+        <form asp-action="Delete">
+
+            <input type="hidden" asp-for="Id" />
+
+            <button type="submit" class="btn btn-danger">
+                Delete
+            </button>
+
+            <a asp-action="Index"
+               class="btn btn-outline-secondary ms-2">
+                Cancel
+            </a>
+
+        </form>
+
+    </div>
+    ```
+
+</div>
