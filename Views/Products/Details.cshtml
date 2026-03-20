@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Product Details";
+}
+
+<div class="card shadow-sm border-0 col-lg-6">
+
+    <div class="card-header bg-white fw-semibold">
+        Product Details
+    </div>
+
+    <div class="card-body">
+
+        <dl class="row">
+
+            <dt class="col-sm-4">Name</dt>
+            <dd class="col-sm-8">@Model.Name</dd>
+
+            <dt class="col-sm-4">Category</dt>
+            <dd class="col-sm-8">@Model.Category</dd>
+
+            <dt class="col-sm-4">Price</dt>
+            <dd class="col-sm-8">$@Model.Price</dd>
+
+            <dt class="col-sm-4">Quantity</dt>
+            <dd class="col-sm-8">@Model.Quantity</dd>
+
+        </dl>
+
+        <a asp-action="Edit"
+           asp-route-id="@Model.Id"
+           class="btn btn-primary">
+            Edit
+        </a>
+
+        <a asp-action="Index"
+           class="btn btn-outline-secondary ms-2">
+            Back
+        </a>
+
+    </div>
+
+</div>
