@@ -1,0 +1,79 @@
+﻿@model WebApplication1.Models.Supplier
+
+@{
+    ViewData["Title"] = "Create Supplier";
+}
+
+<div class="card shadow-sm border-0 col-lg-6">
+
+    ```
+    <div class="card-header bg-white fw-semibold">
+        Create Supplier
+    </div>
+
+    <div class="card-body">
+
+        <form asp-action="Create">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="mb-3">
+
+                <label asp-for="Name" class="form-label"></label>
+
+                <input asp-for="Name"
+                       class="form-control"
+                       placeholder="Enter supplier name" />
+
+                <span asp-validation-for="Name" class="text-danger"></span>
+
+            </div>
+
+
+            <div class="mb-3">
+
+                <label asp-for="ContactEmail" class="form-label"></label>
+
+                <input asp-for="ContactEmail"
+                       class="form-control"
+                       placeholder="supplier@email.com" />
+
+                <span asp-validation-for="ContactEmail" class="text-danger"></span>
+
+            </div>
+
+
+            <div class="mb-3">
+
+                <label asp-for="Phone" class="form-label"></label>
+
+                <input asp-for="Phone"
+                       class="form-control"
+                       placeholder="+91 98765 43210" />
+
+                <span asp-validation-for="Phone" class="text-danger"></span>
+
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">
+                Create Supplier
+            </button>
+
+            <a asp-action="Index"
+               class="btn btn-outline-secondary ms-2">
+                Cancel
+            </a>
+
+        </form>
+
+    </div>
+    ```
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,218 @@
+﻿@* @{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div> *@
+
+@model IEnumerable<WebApplication1.Models.Product>
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+@* <div class="container mt-4">
+    <div class="text-center mb-5">
+        <h1 class="display-5 fw-bold">System Dashboard</h1>
+        <p class="text-muted">Real-time overview of your enterprise inventory.</p>
+    </div>
+
+    <div class="row g-4 mb-5">
+        <div class="col-md-3">
+            <div class="card bg-primary text-white h-100 shadow-sm border-0">
+                <div class="card-body text-center">
+                    <h5 class="card-title">📦 Total Products</h5>
+                    <h2 class="display-6 fw-bold">@ViewBag.TotalProducts</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card bg-success text-white h-100 shadow-sm border-0">
+                <div class="card-body text-center">
+                    <h5 class="card-title">💰 Total Value</h5>
+                    <h2 class="display-6 fw-bold">$@ViewBag.InventoryValue.ToString("N2")</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card bg-danger text-white h-100 shadow-sm border-0">
+                <div class="card-body text-center">
+                    <h5 class="card-title">⚠️ Low Stock Alerts</h5>
+                    <h2 class="display-6 fw-bold">@ViewBag.LowStockCount</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card bg-secondary text-white h-100 shadow-sm border-0">
+                <div class="card-body text-center">
+                    <h5 class="card-title">🤝 Suppliers</h5>
+                    <h2 class="display-6 fw-bold">@ViewBag.TotalSuppliers</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-dark text-white fw-bold">
+                    🚨 Critical Action Required: Lowest Stock Items
+                </div>
+                <div class="card-body p-0">
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>Item Name</th>
+                                <th>Category</th>
+                                <th>Current Quantity</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (!Model.Any())
+                            {
+                                <tr>
+                                    <td colspan="4" class="text-center text-muted py-4">All stock levels are healthy!</td>
+                                </tr>
+                            }
+                            else
+                            {
+                                @foreach (var item in Model)
+                                {
+                                    <tr class="align-middle">
+                                        <td class="fw-bold">@item.Name</td>
+                                        <td><span class="badge bg-light text-dark">@(item.Category?.Name ?? "N/A")</span></td>
+                                        <td><span class="badge bg-danger">@item.Quantity Left</span></td>
+                                        <td>
+                                            <a asp-controller="Products" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">Update Stock</a>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> *@
+
+
+<div class="container mt-4">
+
+    <div class="mb-4">
+        <h2 class="page-title">System Dashboard</h2>
+        <p class="text-muted">Real-time overview of your enterprise inventory</p>
+    </div>
+
+    <div class="row g-4 mb-4">
+
+        <div class="col-md-3">
+            <div class="card dashboard-card bg-white shadow-sm border-0">
+                <div class="card-body text-center">
+                    <h6 class="text-muted">Total Products</h6>
+                    <h2 class="fw-bold text-primary">@ViewBag.TotalProducts</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card dashboard-card bg-white shadow-sm border-0">
+                <div class="card-body text-center">
+                    <h6 class="text-muted">Inventory Value</h6>
+                    <h2 class="fw-bold text-success">$@ViewBag.InventoryValue.ToString("N2")</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card dashboard-card bg-white shadow-sm border-0">
+                <div class="card-body text-center">
+                    <h6 class="text-muted">Low Stock Alerts</h6>
+                    <h2 class="fw-bold text-danger">@ViewBag.LowStockCount</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card dashboard-card bg-white shadow-sm border-0">
+                <div class="card-body text-center">
+                    <h6 class="text-muted">Suppliers</h6>
+                    <h2 class="fw-bold text-dark">@ViewBag.TotalSuppliers</h2>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-white fw-bold">
+            Critical Stock Alerts
+        </div>
+
+        <div class="card-body p-0">
+            <table class="table mb-0">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Category</th>
+                        <th>Quantity</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @if (!Model.Any())
+                    {
+                        <tr>
+                            <td colspan="4" class="text-center text-muted py-4">
+                                All stock levels are healthy
+                            </td>
+                        </tr>
+                    }
+                    else
+                    {
+                        @foreach (var item in Model)
+                        {
+                            <tr class="align-middle">
+
+                                <td class="fw-semibold">@item.Name</td>
+
+                                <td>
+                                    <span class="badge bg-light text-dark">
+                                        @(item.Category?.Name ?? "N/A")
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <span class="badge bg-danger">
+                                        @item.Quantity Left
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <a asp-controller="Products"
+                                       asp-action="Edit"
+                                       asp-route-id="@item.Id"
+                                       class="btn btn-sm btn-primary">
+                                        Update
+                                    </a>
+                                </td>
+
+                            </tr>
+                        }
+                    }
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>

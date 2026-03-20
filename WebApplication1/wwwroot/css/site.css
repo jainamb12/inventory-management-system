@@ -1,0 +1,86 @@
+/*html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}*/
+
+
+
+/* Enterprise Theme */
+
+body {
+    background-color: #f5f7fb;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Dashboard Cards */
+.dashboard-card {
+    border-radius: 12px;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+    .dashboard-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    }
+
+/* Table */
+.table thead {
+    background-color: #1f2937;
+    color: white;
+}
+
+.table tbody tr:hover {
+    background-color: #f1f5f9;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #2563eb;
+    border: none;
+}
+
+    .btn-primary:hover {
+        background-color: #1e4ed8;
+    }
+
+/* Card */
+.card {
+    border-radius: 12px;
+}
+
+/* Form Controls */
+.form-control, .form-select {
+    border-radius: 8px;
+}
+
+.page-title {
+    font-weight: 600;
+}
+
+.active-menu {
+    background-color: #0d6efd;
+    border-radius: 6px;
+    padding-left: 10px !important;
+}
+
+.nav-link.active-menu {
+    font-weight: 600;
+}
