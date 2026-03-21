@@ -26,7 +26,6 @@ This project was built to demonstrate full-stack enterprise architecture, includ
 
 ## 📸 Application Previews
 
-*(Replace these links with actual screenshots of your running application once uploaded to GitHub)*
 * [Screenshot 1: The Live Analytics Dashboard]
 * [Screenshot 2: The Inventory Data Table with Search/Pagination]
 * [Screenshot 3: The Immutable Audit Ledger]
@@ -44,7 +43,7 @@ Follow these steps to run the application on your local machine.
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/yourusername/SmartInventory.git](https://github.com/yourusername/SmartInventory.git)
+   git clone [https://github.com/jainamb12/inventory-management-system.git](https://github.com/jainamb12/inventory-management-system.git)
    ```
 
 2. **Configure the Database Connection**:
@@ -64,7 +63,7 @@ Note: On the very first startup, the application's DbSeeder script will automati
 ### 🔐 Default Testing Credentials
 Upon startup, the application's programmatic seeder will look for a specific email to grant the InventoryManager role. Register an account with the following email to gain full Admin access:
 
-Manager Email: your_email@test.com (Replace this with the email you hardcoded in Program.cs)
+Manager Email: you can find hardcoded email in Program.cs
 
 Password: (Create any password meeting the system requirements during registration)
 
